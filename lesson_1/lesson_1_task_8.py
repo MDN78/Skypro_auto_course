@@ -1,13 +1,6 @@
-# Нажать кнопку Run Python file для выполнения скрипта
 
-list = []
+def print_number(num):
+    return num
 
-def add_to_list(num):
-    list.append(num)
-    return list
-
-for i in range(11):
-    counter = 1
-    add_to_list(num=input(f"Необходимо ввести 11 чисел. Введите число № {i + 1}: "))
-    
-print(*list)
+print(print_number(8), print_number(8), print_number(0), print_number(0), print_number(0), print_number(5), print_number(5), 
+      print_number(5), print_number(3), print_number(5), print_number(3), print_number(5))
