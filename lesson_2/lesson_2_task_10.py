@@ -1,10 +1,10 @@
 
-def bank(x, y):
-    i = 0
-    while i < y:
-        x += (x * 0.1)
-        i += 1
-    return x
+def bank(cash_deposit, deposit_term):
+    year = 0
+    while year < deposit_term:
+        cash_deposit += (cash_deposit * 0.1)
+        year += 1
+    return cash_deposit
 
 print(bank(100, 10))
         

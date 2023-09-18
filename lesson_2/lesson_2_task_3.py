@@ -1,6 +1,8 @@
+from math import *
+
 
 def square(date):
-    result = int(date ** 2)
-    return result
+    result = date ** 2
+    return ceil(result)
     
-print(square(21))
+print(square(5.1))
