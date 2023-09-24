@@ -24,6 +24,7 @@ def test_capitalize_and_remove_empty(date, result):
         res = utils.capitilize(date)
         assert res == result
 
+
 @pytest.mark.parametrize('string, symbol', [
     ('SkyPro', 'S'),
     ('Proverka', 'a'),
@@ -33,7 +34,6 @@ def test_capitalize_and_remove_empty(date, result):
     ('Вторая', 'я'),
     ('1234', '1')
     ])
-  
 def test_start_or_end_with(string, symbol):
     utils = StringUtils()
     if string[0] == symbol:
@@ -46,28 +46,49 @@ def test_start_or_end_with(string, symbol):
         assert res == True
 
 
-@pytest.mark.parametrize('string, symbol',[
-    ('SkyPro', 'S'),
-    ('Привет', 'р')
+@pytest.mark.parametrize('string, symbol, result',[
+    ('SkyPro', 'S', True),
+    ('Привет', 'р', True),
+    ('SkyPro', 's', False),
+    ('Привет', 'я', False),
+    pytest.param(111, 3, False, marks=pytest.mark.xfail)
     ])       
-def test_contains_positive(string, symbol):
+def test_contains(string, symbol, result):
     utils = StringUtils()
     res = utils.contains(string, symbol)
-    assert res == True
-    
-@pytest.mark.parametrize('string, symbol', [
-    ('SkyPro', 's'),
-    ('Привет', 'я')
-    ])       
-def test_contains_negative(string, symbol):
-    utils = StringUtils()
-    res = utils.contains(string, symbol)
-    assert res == False
- 
+    assert res == result
 
-@pytest.mark.xfail(strict=True)
+
+@pytest.mark.parametrize('string, delimiter', [
+    ('"a, b, c", ","', '["a", "b", "c"]' ),
+    ('""')])
+@pytest.mark.xfail
 def test_to_list_positive(string, delimiter, result):
     utils = StringUtils()
     res = utils.to_list(string, delimiter)
     assert res == result
-    
+
+
+@pytest.mark.parametrize('string, result', [
+    (" ", True),
+    ("", True),
+    ("Skypro", False),
+    ("Привет", False),
+    ('12345', False)
+])   
+def test_is_empty_positive(string, result):
+    utils = StringUtils()
+    res = utils.is_empty(string)
+    assert res == result
+
+   
+@pytest.mark.parametrize('string, symbol, result', [
+    ("SkyPro", "k", "SyPro"),
+    ("Привет", "П", "ривет"),
+    ("test", "", "test"),
+    pytest.param(121, 2, 11, marks=pytest.mark.xfail)
+])
+def test_delete_symbol(string, symbol, result):
+    utils = StringUtils()
+    res = utils.delete_symbol(string, symbol)
+    assert res == result

@@ -3,5 +3,6 @@
 
 Некорректное наименование def to_list(self, string: str, delimeter = ",") -> list[str]: грамматическая ошибка
 
-Некорректно написанный код функции def to_list(self, string: str, delimeter = ",") -> list[str]: - в функции используются аргументы. 
-которые не передаются в функцию - self.is_empty
+Некорректно написанный код функции def to_list(self, string: str, delimeter = ",") -> list[str]: - некорректно используется функция - self.is_empty
+
+
