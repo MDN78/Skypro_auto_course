@@ -25,25 +25,27 @@ def test_capitalize_or_trim(date, result):
         assert res == result
 
 
-@pytest.mark.parametrize('string, symbol', [
-    ('SkyPro', 'S'),
-    ('Proverka', 'a'),
-    ('Second', 's'),
-    ('sos', 's'),
-    ('Проверка', 'П'),
-    ('Вторая', 'я'),
-    ('1234', '1')
+@pytest.mark.parametrize('string, symbol, result', [
+    ('SkyPro', 'S', True),
+    ('Skyeng', 'k', False),
+    ('Proverka', 'a', True),
+    ('Second', 's', True),
+    ('sos', 's', True),
+    ('Проверка', 'П', True),
+    ('Вторая', 'я', True),
+    ('1234', '1', True),
+    ('12345', '6', False)
     ])
-def test_start_or_end_with(string, symbol):
+def test_start_or_end_with(string, symbol, result):
     utils = StringUtils()
     if string[0] == symbol:
         print("Start testing function 'starts_with")
         res = utils.starts_with(string, symbol)
-        assert res == True
+        assert res == result
     elif string[-1] == symbol:
         print("Start testing function 'end_with")
         res = utils.end_with(string, symbol)
-        assert res == True
+        assert res == result
 
 
 @pytest.mark.parametrize('string, symbol, result',[
