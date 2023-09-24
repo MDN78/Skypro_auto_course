@@ -1,8 +1,8 @@
+Обнаруженные ошибки и неточности в классе StringUtils:
+1) Некорректное наименование функции  def capitilize(self, string: str) - грамматическая ошибка в слове capitalize
 
-Некорректное наименование функции  def capitilize(self, string: str) - грамматическая ошибка
+2) Некорректное наименование def to_list(self, string: str, delimeter = ",") -> list[str]: грамматическая ошибка в слове delimiter
 
-Некорректное наименование def to_list(self, string: str, delimeter = ",") -> list[str]: грамматическая ошибка
-
-Некорректно написанный код функции def to_list(self, string: str, delimeter = ",") -> list[str]: - некорректно используется функция - self.is_empty
+3) Некорректно написанный код функции def to_list(self, string: str, delimeter = ",") -> list[str]: - некорректно используется функция - self.is_empty
 
 

@@ -13,7 +13,7 @@ utils = StringUtils()
     ('  второй', 'второй'),
     (' Sky Pro', 'Sky Pro')
     ])
-def test_capitalize_and_remove_empty(date, result):
+def test_capitalize_or_trim(date, result):
     utils = StringUtils()
     if date[0] == ' ':
         print("Start testing function 'Remove empty'")
@@ -51,6 +51,7 @@ def test_start_or_end_with(string, symbol):
     ('Привет', 'р', True),
     ('SkyPro', 's', False),
     ('Привет', 'я', False),
+    ('Sky Pro', 'P', True),
     pytest.param(111, 3, False, marks=pytest.mark.xfail)
     ])       
 def test_contains(string, symbol, result):
@@ -86,9 +87,22 @@ def test_is_empty_positive(string, result):
     ("SkyPro", "k", "SyPro"),
     ("Привет", "П", "ривет"),
     ("test", "", "test"),
-    pytest.param(121, 2, 11, marks=pytest.mark.xfail)
+    pytest.param(121, 2, 11, marks=pytest.mark.xfail),
+    ("", "", "")
 ])
 def test_delete_symbol(string, symbol, result):
     utils = StringUtils()
     res = utils.delete_symbol(string, symbol)
     assert res == result
+
+   
+@pytest.mark.parametrize('list, joiner, result', [
+    ([1,2,3,4], ", ", "1, 2, 3, 4"),
+    ([], "", ""),
+    (['a', 'b', 'c'], "*", "a*b*c" )
+])
+def test_list_to_string(list, joiner, result):
+    utils = StringUtils()
+    res = utils.list_to_string(list, joiner)
+    assert res == result
+    
