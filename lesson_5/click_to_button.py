@@ -3,7 +3,14 @@ import time
 from selenium.webdriver.common.by import By
 
 
+
+
+# select webdriver. Default driver - Chrome
+
+# driver = webdriver.Firefox()
 driver = webdriver.Chrome()
+
+
 url = 'http://the-internet.herokuapp.com/add_remove_elements/'
 driver.get(url)
 driver.maximize_window()

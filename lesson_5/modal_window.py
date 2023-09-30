@@ -4,6 +4,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+# select webdriver. Default driver - Chrome
+
+# driver = webdriver.Firefox()
 driver = webdriver.Chrome()
 url = 'http://the-internet.herokuapp.com/entry_ad'
 driver.get(url)

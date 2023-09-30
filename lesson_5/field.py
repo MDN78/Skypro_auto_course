@@ -2,7 +2,9 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
 
+# select webdriver. Default driver - Chrome
 
+# driver = webdriver.Firefox()
 driver = webdriver.Chrome()
 url = 'http://the-internet.herokuapp.com/inputs'
 driver.get(url)
