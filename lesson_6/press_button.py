@@ -3,8 +3,6 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 link = 'http://uitestingplayground.com/ajax'
-driver.get(link)
-driver.maximize_window()
 
 driver.implicitly_wait(20)
 driver.get(link)
