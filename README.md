@@ -20,5 +20,9 @@
  - turtle
  4. Lesson 4 - first pytest  - check code
  5. Lesson 5 - selenium - first steps
+ 6. Lesson 6 
+  - implisitly wait
+  - explisitly wait
+  - working with attributes 
 
 
