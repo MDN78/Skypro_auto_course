@@ -4,3 +4,5 @@ lesson_3/__pycache__/*
 lesson_4/__pycache__/*
 lesson_4/.pytest_cache/*
 geckodriver.log
+check_work/__pycache__/*
+check_work/.pytest_cache/*
