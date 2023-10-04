@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 
 driver = webdriver.Chrome()
 base_url = 'https://www.saucedemo.com/'
@@ -16,7 +15,6 @@ def authorization():
     print('Input password')
     button_login = driver.find_element(By.CSS_SELECTOR, "#login-button").click()
     print('Click login button')
-    time.sleep(1)
 
 """INFO products"""
 
@@ -30,7 +28,6 @@ def get_product_1():
     select_product_1 = driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
     select_product_1.click()
     print(f'First product "{value_product_1}", price: {value_price_product_1}, was added to basket')
-    time.sleep(1)
 
 def get_product_2():
     product_2 = driver.find_element(By.XPATH, "//*[@id='item_1_title_link']/div")
@@ -57,12 +54,10 @@ def get_product_3():
 """CHECKOUT"""
 def checkout():
     cart = driver.find_element(By.XPATH, "//a[@class='shopping_cart_link']").click()
-    time.sleep(2)
     print("Enter to basket")
     checkout = driver.find_element(By.XPATH, "//button[@id='checkout']")
     checkout.click()
     print("Click checkout")
-    time.sleep(2)
 
 """User info"""
 
@@ -75,7 +70,6 @@ def input_user_info():
     print("Input Zip Code")
     button_continue = driver.find_element(By.XPATH, "//input[@id='continue']").click()
     print("Press the button 'continue'")
-    time.sleep(6)
     
 """check price"""
 
@@ -90,9 +84,7 @@ def check_total_price():
 
 def finish_process():
     finish = driver.find_element(By.XPATH, "//button[@id='finish']").click()
-    time.sleep(1)
     back_home = driver.find_element(By.XPATH, "//button[@id='back-to-products']").click()
-    time.sleep(2)
 
 
 def test_buy_products():
