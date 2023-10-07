@@ -2,7 +2,6 @@ from MainPage import MainPage
 from selenium import webdriver
 from asserts import Asserts
 from locators import FieldColor
-import time
 
 def test_check_authorization_form():
     driver = webdriver.Chrome()
