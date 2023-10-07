@@ -69,9 +69,6 @@ def check_field_job_position():
 def check_field_company():
     return driver.find_element(By.XPATH, "//div[@id='company']").value_of_css_property('background-color')
 
-def check_field_job_position():
-    return driver.find_element(By.XPATH, "//div[@id='job-position']").value_of_css_property('background-color')
-
 def assert_background_color(color, result):
     assert color == result, "wrong color"
 
