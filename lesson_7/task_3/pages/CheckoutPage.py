@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-
 class FinishPage:    
     
     def __init__(self, driver):

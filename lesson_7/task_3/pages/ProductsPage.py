@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-# from pages.locators import ProductLocators, ProductPriceLocators, ProductButton, Checkout
 
 class AddProductCart:
     def __init__(self, driver):

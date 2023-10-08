@@ -3,8 +3,8 @@ from pages.ProductsPage import AddProductCart
 from pages.UserInfo import GetUserInfo
 from pages.CheckoutPage import FinishPage
 from selenium import webdriver
-from pages.locators import ProductLocators, ProductPriceLocators, ProductButton, Checkout, UserInfo
-import time
+from pages.locators import ProductLocators, ProductPriceLocators, ProductButton, Checkout
+
 
 def test_buy_products():
     driver = webdriver.Chrome()
