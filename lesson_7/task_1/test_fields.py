@@ -8,6 +8,7 @@ def test_check_authorization_form():
     
     main_page = MainPage(driver)
     main_page.fill_fields()
+    
     Asserts(main_page.check_field_first_name(), FieldColor.green)
     Asserts(main_page.check_field_last_name(), FieldColor.green)
     Asserts(main_page.check_field_address(), FieldColor.green)
@@ -19,5 +20,5 @@ def test_check_authorization_form():
     Asserts(main_page.check_field_job_position(), FieldColor.green)
     Asserts(main_page.check_field_company(), FieldColor.green)
     
-    driver.quit()
+    driver.close()
     
