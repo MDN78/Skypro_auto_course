@@ -19,3 +19,16 @@ class ProductButton:
     sauce_labs_backpack_button = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
     sauce_labs_bolt_t_shirt_button = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
     sauce_labs_onesie_button = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-onesie']")
+    
+class Checkout:
+    
+    cart = (By.XPATH, "//a[@class='shopping_cart_link']")
+    checkout_button = (By.XPATH, "//button[@id='checkout']")
+
+class UserInfo:
+    
+    first_name = (By.XPATH, "//input[@id='first-name']")
+    last_name = (By.XPATH, "//input[@id='last-name']")
+    zip_code = (By.XPATH, "//input[@id='postal-code']")
+    button_continue = (By.XPATH, "//input[@id='continue']")
+    
