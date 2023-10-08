@@ -18,11 +18,13 @@
  - list of objects and task with smartphones catalog
  - Task with class: <br>class Mailing <br>class Address
  - turtle
- 4. Lesson 4 - first pytest  - check code
- 5. Lesson 5 - selenium - first steps
- 6. Lesson 6 
+4. Lesson 4 - first pytest  - check code
+5. Lesson 5 - selenium - first steps
+6. Lesson 6 
   - implisitly wait
   - explisitly wait
   - working with attributes 
+7. Lesson 7 - lesson honored for Page Objects:
+  - rebuild tests from check work on PO methods
 
 
