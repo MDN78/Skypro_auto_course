@@ -51,3 +51,14 @@ class CompanyApi:
     def get_employee_by_id(self, id_employee):
         resp = requests.get(f"{self.url}/employee/{id_employee}")
         return resp.json()
+    
+    def update_employee_info(self, id_employee, last_name, email):
+        user_info = {
+            "lastName": last_name,
+            "email": email,
+            "isActive": True
+        }
+        my_headers = {}
+        my_headers["x-client-token"] = self.get_token()
+        resp = requests.patch(f"{self.url}/employee/{id_employee}", headers=my_headers, json=user_info)
+        return resp.json()

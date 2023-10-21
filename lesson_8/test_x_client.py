@@ -1,5 +1,3 @@
-import requests
-import json
 from CompanyApi import CompanyApi
 
 api = CompanyApi("https://x-clients-be.onrender.com")
@@ -37,4 +35,17 @@ def test_get_employee_by_id():
     assert get_info["firstName"] == "Alex"
     assert get_info["lastName"] == "Fursov"
 
-
+def test_update_user_info():
+    name = "Company for update user info"
+    descr = "SkyPro testing"
+    company = api.create_company(name, descr)
+    new_id = company["id"]
+    new_employee = api.add_new_employee(new_id, "Alex", "Fursov2")
+    id_employee = new_employee["id"]
+    
+    update = api.update_employee_info(id_employee, "Fursov2", "test@ya.ru")
+    assert update["id"] == id_employee
+    assert update["email"] == "test@ya.ru"
+    assert update["isActive"] == True
+    
+    
