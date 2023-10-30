@@ -16,7 +16,7 @@ class CompanyTable:
         """ add new employee to database """
         query = text("insert into employee(company_id, first_name, last_name, phone) values(:max_id, :name, :surname, :phone)")
         with self.__db.engine.connect() as conn:
-            result = conn.execute(statement=query, parameters=dict(company_id=max_id, first_name=name, surname=surname, phone=phone))
+            conn.execute(statement=query, parameters=dict(company_id=max_id, first_name=name, surname=surname, phone=phone))
             conn.commit()
 
     def create(self, new_name: str) -> None:
@@ -25,7 +25,7 @@ class CompanyTable:
         """
         query = text("insert into company(name) values(:new_name)")
         with self.__db.engine.connect() as conn:
-            result = conn.execute(statement=query, parameters=dict(new_name = new_name))
+            conn.execute(statement=query, parameters=dict(new_name = new_name))
             conn.commit()
             
     def get_max_id(self) -> int:
@@ -43,5 +43,5 @@ class CompanyTable:
         """
         query = text("delete from company where id=:company_id")
         with self.__db.engine.connect() as conn:
-            result = conn.execute(statement=query, parameters=dict(company_id = new_id))
+            conn.execute(statement=query, parameters=dict(company_id = new_id))
             conn.commit()
