@@ -20,7 +20,7 @@ class CompanyTable:
             conn.commit()
         return result
 
-    def get_employee_by_id(self, id: int) -> list:
+    def get_employee_by_id(self, id: int) -> int:
         query = text("select id from employee where company_id =:company_id")
         with self.__db.engine.begin() as conn:
             bd_result = conn.execute(statement=query, parameters=dict(company_id=id)).fetchall()[0][0]
