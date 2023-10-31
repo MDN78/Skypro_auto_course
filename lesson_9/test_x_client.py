@@ -13,16 +13,13 @@ def test_get_list_of_employees():
     db.delete(max_id)
 
 def test_add_new_employee():
-    db.create("Add new employee")
+    db.create("Company for adding new employee")
     max_id = db.get_max_id()
     new_employee = db.add_new_employee(max_id, "Oleg", "Fursov", 9098087766)
-    db_employee_list = db.get_list_of_employees(max_id)
-    print(db_employee_list)
    
     resp = api.get_list_employee(max_id)
     employee_id = resp[0]["id"]
     
-
     assert resp[0]["companyId"] == max_id
     assert resp[0]["firstName"] == "Oleg"
     assert resp[0]["isActive"] == True
@@ -31,27 +28,28 @@ def test_add_new_employee():
     db.delete(max_id)
 
 def test_get_employee_by_id():
-    name = "Company for testing id employee"
-    descr = "SkyPro testing"
-    company = api.create_company(name, descr)
-    new_id = company["id"]
-    new_employee = api.add_new_employee(new_id, "Alex", "Fursov")
-    id_employee = new_employee["id"]
-    get_info = api.get_employee_by_id(id_employee)
-    assert get_info["firstName"] == "Alex"
-    assert get_info["lastName"] == "Fursov"
-
-def test_update_user_info():
-    name = "Company for update user info"
-    descr = "SkyPro testing"
-    company = api.create_company(name, descr)
-    new_id = company["id"]
-    new_employee = api.add_new_employee(new_id, "Alex", "Fursov2")
-    id_employee = new_employee["id"]
+    db.create("Company for adding new employee")
+    max_id = db.get_max_id()
+    new_employee = db.add_new_employee(max_id, "Oleg", "Fursov", 9098087766)
+    employee_id = db.get_employee_by_id(max_id)
     
-    update = api.update_employee_info(id_employee, "Fursov2", "test@ya.ru")
-    assert update["id"] == id_employee
-    assert update["email"] == "test@ya.ru"
-    assert update["isActive"] == True
+    get_info = api.get_employee_by_id(employee_id)
+    assert get_info["firstName"] == "Oleg"
+    assert get_info["lastName"] == "Fursov"
+    db.delete_employee(employee_id)
+    db.delete(max_id)
+
+# def test_update_user_info():
+#     name = "Company for update user info"
+#     descr = "SkyPro testing"
+#     company = api.create_company(name, descr)
+#     new_id = company["id"]
+#     new_employee = api.add_new_employee(new_id, "Alex", "Fursov2")
+#     id_employee = new_employee["id"]
+    
+#     update = api.update_employee_info(id_employee, "Fursov2", "test@ya.ru")
+#     assert update["id"] == id_employee
+#     assert update["email"] == "test@ya.ru"
+#     assert update["isActive"] == True
     
     

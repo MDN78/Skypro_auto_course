@@ -16,8 +16,15 @@ class CompanyTable:
         """ add new employee to database """
         query = text("insert into employee(company_id, first_name, last_name, phone) values(:company_id, :first_name, :surname, :phone)")
         with self.__db.engine.connect() as conn:
-            conn.execute(statement=query, parameters=dict(company_id=max_id, first_name=name, surname=surname, phone=phone))
+            result = conn.execute(statement=query, parameters=dict(company_id=max_id, first_name=name, surname=surname, phone=phone))
             conn.commit()
+        return result
+
+    def get_employee_by_id(self, id: int) -> list:
+        query = text("select id from employee where company_id =:company_id")
+        with self.__db.engine.begin() as conn:
+            bd_result = conn.execute(statement=query, parameters=dict(company_id=id)).fetchall()[0][0]
+        return bd_result
 
     def create(self, new_name: str) -> None:
         """
