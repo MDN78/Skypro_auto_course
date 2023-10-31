@@ -40,16 +40,18 @@ def test_get_employee_by_id():
     db.delete(max_id)
 
 def test_update_user_info():
-    name = "Company for update user info"
-    descr = "SkyPro testing"
-    company = api.create_company(name, descr)
-    new_id = company["id"]
-    new_employee = api.add_new_employee(new_id, "Alex", "Fursov2")
-    id_employee = new_employee["id"]
+    db.create("Company for update employees info")
+    max_id = db.get_max_id()
+    new_employee = db.add_new_employee(max_id, "Oleg", "Fursov", 9098087766)
+    employee_id = db.get_employee_by_id(max_id)
+    db.update_employee_info("Ivan", employee_id)
     
-    update = api.update_employee_info(id_employee, "Fursov2", "test@ya.ru")
-    assert update["id"] == id_employee
-    assert update["email"] == "test@ya.ru"
-    assert update["isActive"] == True
+    get_info = api.get_employee_by_id(employee_id)
+    assert get_info["firstName"] == "Ivan"
+    assert get_info["lastName"] == "Fursov"
+    assert get_info["isActive"] == True
+    db.delete_employee(employee_id)
+    db.delete(max_id)
+ 
     
     

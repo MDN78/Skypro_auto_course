@@ -25,7 +25,13 @@ class CompanyTable:
         with self.__db.engine.begin() as conn:
             bd_result = conn.execute(statement=query, parameters=dict(company_id=id)).fetchall()[0][0]
         return bd_result
-
+    
+    def update_employee_info(self, new_name: str, id: int) -> None:
+        query = text("update employee set first_name = :new_name where id = :employee_id")
+        with self.__db.engine.connect() as conn:
+            conn.execute(statement=query, parameters=dict(new_name=new_name, employee_id=id))
+            conn.commit()
+            
     def create(self, new_name: str) -> None:
         """
         add new company to database
