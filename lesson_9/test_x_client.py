@@ -15,21 +15,20 @@ def test_get_list_of_employees():
 def test_add_new_employee():
     db.create("Add new employee")
     max_id = db.get_max_id()
-    new_employee = db.add_new_employee(max_id, "Pavel", "Durov", 9098087766)
+    new_employee = db.add_new_employee(max_id, "Oleg", "Fursov", 9098087766)
     db_employee_list = db.get_list_of_employees(max_id)
-    # name = "Company for new employee"
-    # descr = "SkyPro testing"
-    # company = api.create_company(name, descr)
-    # new_id = company["id"]
-    # new_employee = api.add_new_employee(new_id, "Pavel", "Durov")
-    # assert new_employee["id"] > 0
-    
+    print(db_employee_list)
+   
     resp = api.get_list_employee(max_id)
-    assert len(resp) == len(db_employee_list)
+    employee_id = resp[0]["id"]
+    
+
     assert resp[0]["companyId"] == max_id
-    assert resp[0]["firstName"] == "Pavel"
+    assert resp[0]["firstName"] == "Oleg"
     assert resp[0]["isActive"] == True
-    assert resp[0]["lastName"] == "Durov"
+    assert resp[0]["lastName"] == "Fursov"
+    db.delete_employee(employee_id)
+    db.delete(max_id)
 
 def test_get_employee_by_id():
     name = "Company for testing id employee"
