@@ -21,12 +21,14 @@ class CompanyTable:
         return result
 
     def get_employee_by_id(self, id: int) -> int:
+        """ Get employee id by company id"""
         query = text("select id from employee where company_id =:company_id")
         with self.__db.engine.begin() as conn:
             bd_result = conn.execute(statement=query, parameters=dict(company_id=id)).fetchall()[0][0]
         return bd_result
     
     def update_employee_info(self, new_name: str, id: int) -> None:
+        """ Update user info """
         query = text("update employee set first_name = :new_name where id = :employee_id")
         with self.__db.engine.connect() as conn:
             conn.execute(statement=query, parameters=dict(new_name=new_name, employee_id=id))
