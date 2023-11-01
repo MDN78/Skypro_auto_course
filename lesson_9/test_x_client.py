@@ -4,6 +4,7 @@ from CompanyTable import CompanyTable
 api = CompanyApi("https://x-clients-be.onrender.com")
 db = CompanyTable("postgresql://x_clients_db_r06g_user:0R1RNWXMepS7mrvcKRThRi82GtJ2Ob58@dpg-cj94hf0eba7s73bdki80-a.oregon-postgres.render.com/x_clients_db_r06g")
 
+
 def test_get_list_of_employees():
     db.create("Testing employee")
     max_id = db.get_max_id()
