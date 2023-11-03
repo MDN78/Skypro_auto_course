@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class MainPageLocators:
+    """Locators from main page - all fields"""
     first_name = (By.XPATH, "//input[@name='first-name']")
     last_name = (By.XPATH, "//input[@name='last-name']")
     address = (By.XPATH, "//input[@name='address']")
@@ -14,6 +15,7 @@ class MainPageLocators:
     button_submit = (By.XPATH, "//button[@class='btn btn-outline-primary mt-3']")
     
 class Locators_for_checking_color:
+    """Locators for checking colors fields"""
     first_name = (By.XPATH, "//div[@id='first-name']")
     last_name = (By.XPATH, "//div[@id='last-name']")
     address = (By.XPATH, "//div[@id='address']")
@@ -27,5 +29,6 @@ class Locators_for_checking_color:
     button_submit = (By.XPATH, "//div[@id='job-position']")
     
 class FieldColor:
+    """Colors for checking"""
     green = 'rgba(209, 231, 221, 1)'
     red = 'rgba(248, 215, 218, 1)'

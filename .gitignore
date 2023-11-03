@@ -8,6 +8,7 @@ check_work/__pycache__/*
 check_work/.pytest_cache/*
 lesson_7/task_1/__pycache__/*
 lesson_7/task_1/.pytest_cache/*
+lesson_7/task_1/allure-result/*
 lesson_7/task_2/__pycache__/*
 lesson_7/task_2/.pytest_cache/*
 lesson_7/task_3/.pytest_cache/*
