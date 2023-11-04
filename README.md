@@ -26,5 +26,6 @@
   - working with attributes 
 7. Lesson 7 - lesson honored for Page Objects:
   - rebuild tests from check work on PO methods
+8. Lesson 8 - lesson about API testing via pytest and requests
 
 
