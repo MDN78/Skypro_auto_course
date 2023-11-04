@@ -10,7 +10,7 @@ class MainPage:
         self._driver.implicitly_wait(timeout)
         self._driver.maximize_window()
     
-    @allure.step("Set timer")
+    @allure.step("Set timer {time}")
     def set_timer(self, time: str):
         """Set timer time"""
         timer = self._driver.find_element(By.CSS_SELECTOR, '#delay')
