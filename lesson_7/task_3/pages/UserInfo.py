@@ -1,12 +1,14 @@
 from pages.locators import UserInfo
+import allure
 
 
 class GetUserInfo:
     
     def __init__(self, driver):
         self._driver = driver
-        
-    def input_user_info(self, name, last_name, zip_code):
+    
+    @allure.step("Input user info: {name}, {last_name}, {zip_code}")
+    def input_user_info(self, name: str, last_name: str, zip_code: str):
         first_name = self._driver.find_element(*UserInfo.first_name).send_keys(name)
         print("Input first name")
         last_name = self._driver.find_element(*UserInfo.last_name).send_keys(last_name)

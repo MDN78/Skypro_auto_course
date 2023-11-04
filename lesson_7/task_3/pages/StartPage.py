@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import allure
 
 class StartPage:
     
@@ -8,7 +9,9 @@ class StartPage:
         self._driver.implicitly_wait(timeout)
         self._driver.maximize_window()
     
-    def authorization(self, user_name, password):
+    @allure.step("Authorization {user_name} : {password}")
+    def authorization(self, user_name: str, password: str) -> None:
+        """Method for authorization user"""
         user_name = self._driver.find_element(By.CSS_SELECTOR, "#user-name").send_keys(user_name)
         print('Input login')
         password = self._driver.find_element(By.CSS_SELECTOR, "#password").send_keys(password)

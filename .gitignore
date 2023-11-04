@@ -11,9 +11,11 @@ lesson_7/task_1/.pytest_cache/*
 lesson_7/task_1/allure-result/*
 lesson_7/task_2/__pycache__/*
 lesson_7/task_2/.pytest_cache/*
+lesson_7/task_2/allure-result/*
 lesson_7/task_3/.pytest_cache/*
 lesson_7/task_3/__pycache__/*
 lesson_7/task_3/pages/__pycache__/*
+lesson_7/task_3/allure-result/*
 lesson_8/__pycache__/*
 lesson_9/__pycache__/*
 lesson_9/.pytest_cache/*
