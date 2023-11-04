@@ -19,3 +19,4 @@ lesson_7/task_3/allure-result/*
 lesson_8/__pycache__/*
 lesson_9/__pycache__/*
 lesson_9/.pytest_cache/*
+lesson_9/allure-result/*
